@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+# auth bypass
 
 import requests
 import json
