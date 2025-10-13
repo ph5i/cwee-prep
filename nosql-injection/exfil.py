@@ -4,7 +4,7 @@ import requests
 import json
 
 # Configuration
-URL = "http://94.237.57.115:51805/index.php"
+URL = "http://94.237.57.115:49238/index.php"
 PROXY = {"http":"http://172.21.144.1:8081"}
 HEADERS = {"Content-Type":"application/json"}
 
